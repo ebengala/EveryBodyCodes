@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EverybodyCodes.ExternalServices\EveryBodyCodes.ExternalServices.csproj" />
+    <ProjectReference Include="..\EveryBodyCodes\EveryBodyCodes.csproj" />
+  </ItemGroup>
+
+</Project>
