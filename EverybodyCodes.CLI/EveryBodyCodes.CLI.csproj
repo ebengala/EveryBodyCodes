@@ -1,17 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <!--<PropertyGroup>
+  <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>-->
+	  <LangVersion>latest</LangVersion>
+   <AssemblyName>search</AssemblyName>
+  </PropertyGroup>
 
-	<PropertyGroup>
+	<!--<PropertyGroup>
    <OutputType>Exe</OutputType>
    <TargetFramework>netcoreapp3.1</TargetFramework>
    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
    <LangVersion>latest</LangVersion>
    <AssemblyName>search</AssemblyName>
- </PropertyGroup>	
+ </PropertyGroup>-->	
 	
 
   <ItemGroup>
