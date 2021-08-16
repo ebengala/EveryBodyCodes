@@ -23,7 +23,7 @@ namespace EveryBodyCodes.WebApi.Controllers
         }
 
         [HttpGet("{Name}")]
-        [ProducesResponseType(typeof(List<EntityCameraResponse>), 200)]
+        [ProducesResponseType(typeof(List<CameraResponse>), 200)]
         public async Task<IActionResult> Get([Required] string Name)
         {
             if (string.IsNullOrEmpty(Name))

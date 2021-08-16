@@ -12,20 +12,18 @@ namespace EveryBodyCodes.ExternalServices
 {
     public class CameraService : ICameraService
     {
-        public async Task<List<TinyCsvParser.Mapping.CsvMappingResult<EntityCamera>>> GetCamerasByNameAsync()
+        public async Task<List<TinyCsvParser.Mapping.CsvMappingResult<EntityCamera>>> GetCamerasAsync(string CamerasCSVPath)
         {
             var csvParserOptions = new CsvParserOptions(true, ';');
             var csvMapper = new CameraMapper();
 
-            var filePath = "C:\\cameras-defb.csv";
-            
-            if (!File.Exists(@filePath))
+            if (!File.Exists(CamerasCSVPath))
             {
                 return null;
             }
 
             var csvParser = new CsvParser<EntityCamera>(csvParserOptions, csvMapper);
-            return csvParser.ReadFromFile(@"C:\\cameras-defb.csv", Encoding.ASCII)?.ToList();
+            return csvParser.ReadFromFile(CamerasCSVPath, Encoding.ASCII)?.ToList();
         }
     }
 }

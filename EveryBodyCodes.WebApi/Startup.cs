@@ -29,6 +29,10 @@ namespace EveryBodyCodes.WebApi
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
+
+            // map the appsettings
+            services.AddOptions();
+            services.Configure<Configurations>(Configuration.GetSection("Configurations"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

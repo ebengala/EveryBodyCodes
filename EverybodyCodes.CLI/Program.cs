@@ -15,7 +15,8 @@ using EveryBodyCodes.ExternalServices;
 
 namespace EveryBodyCodes.CLI
 {
-    class Program
+    
+    public class Program
     {
 
         [Option(CommandOptionType.SingleValue, ShortName = "n", LongName = "name", Description = "Camera name", ValueName = "", ShowInHelpText = true)]
@@ -31,8 +32,14 @@ namespace EveryBodyCodes.CLI
             this.logger = logger;
         }
 
+
+        
         private static async Task<int> Main(string[] args)
         {
+            //var app = new CommandLineApplication();
+            //app.Name = "search";
+            //app.Description = ".NET Core console app with argument parsing.";
+            //app.HelpOption("-?|-h|--help");
 
             var Configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -54,7 +61,11 @@ namespace EveryBodyCodes.CLI
                         config.AddConsole();
                         config.AddProvider(new SerilogLoggerProvider(Log.Logger));
 
-                    })
+                    });
+
+                    // map the appsettings
+                    services.AddOptions();
+                    services.Configure<Configurations>(Configuration.GetSection("Configurations"))
 
                      .AddSingleton<ICameraBs, CameraBs>()
                      .AddSingleton<ICameraService, CameraService>();
@@ -62,6 +73,7 @@ namespace EveryBodyCodes.CLI
             
             try
             {
+
                return await builder.RunCommandLineApplicationAsync<Program>(args);
             }
             catch (Exception ex)
@@ -74,17 +86,16 @@ namespace EveryBodyCodes.CLI
         protected async Task<int> OnExecute(CommandLineApplication app)
         {
 
-            if (string.IsNullOrEmpty(Name))
+            if (string.IsNullOrWhiteSpace(Name))
             {
                 app.ShowHelp();
-                return 0;
+                return 1;
             }
-            else
-            {
-                try
+
+            try
                 {
-                   
-                    var result = await cameraBs.GetCamerasByNameAsync(Name);
+
+                  var result = await cameraBs.GetCamerasByNameAsync(Name);
 
                     if (result != null && result.Count > 0)
                         result.ForEach(item => Console.WriteLine($"{item.Camera} | {item.Longitude} | {item.Latitude}"));
@@ -99,8 +110,7 @@ namespace EveryBodyCodes.CLI
                     OnException(ex);
                     return 1;
                 }
-            }
-
+            
         }
 
         protected void OnException(Exception ex)

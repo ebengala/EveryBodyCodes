@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Serilog;
 using System;
 using System.Collections.Generic;
+
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -65,6 +66,8 @@ namespace EveryBodyCodes.WebApi
             {
                 webBuilder.UseStartup<Startup>();
             });
+
+
 
 
     }

@@ -7,6 +7,6 @@ namespace EveryBodyCodes.ExternalServices.Interfaces
 {
     public interface ICameraService
     {
-        Task<List<TinyCsvParser.Mapping.CsvMappingResult<EntityCamera>>> GetCamerasByNameAsync();
+        Task<List<TinyCsvParser.Mapping.CsvMappingResult<EntityCamera>>> GetCamerasAsync(string CamerasCSVPath);
     }
 }
