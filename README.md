@@ -1,4 +1,4 @@
-# EveryBodyCodes
+# EveryBodyCodes -Fignum Coding Test
 
 Struture 4 layers:
   - controllers - api entry layer
