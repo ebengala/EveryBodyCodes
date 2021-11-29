@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace EveryBodyCodes.ExternalServices.Interfaces
 {
-    public interface ICameraService
+    public interface INumberService
     {
-        Task<List<TinyCsvParser.Mapping.CsvMappingResult<EntityCamera>>> GetCamerasAsync(string CamerasCSVPath);
+        Task<List<int>> GetNumbersAsync(string id);
     }
 }

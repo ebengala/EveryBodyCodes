@@ -1,3 +1,4 @@
+using EveryBodyCodes.WebApi.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,11 +25,15 @@ namespace EveryBodyCodes.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
             services.AddControllers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
+            //Register Filter;
+            services.AddScoped<PrimeNumberActionFilter>();
 
             // map the appsettings
             services.AddOptions();
@@ -50,7 +55,7 @@ namespace EveryBodyCodes.WebApi
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Camera API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Number API V1");
             });
 
             

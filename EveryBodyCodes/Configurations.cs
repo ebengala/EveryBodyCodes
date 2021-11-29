@@ -6,7 +6,7 @@ namespace EveryBodyCodes
 {
     public class Configurations
     {
-            public string CamerasCSVPath { get; set; }
+            public string NumbersOrder { get; set; }
 
     }
 }

@@ -22,11 +22,11 @@ namespace EveryBodyCodes.CLI
         [Option(CommandOptionType.SingleValue, ShortName = "n", LongName = "name", Description = "Camera name", ValueName = "", ShowInHelpText = true)]
         public string Name { get; set; }
 
-        private readonly ICameraBs cameraBs;
+        private readonly INumberBs cameraBs;
 
         private readonly ILogger<Program> logger;
 
-        public Program(ICameraBs cameraBs, ILogger<Program> logger)
+        public Program(INumberBs cameraBs, ILogger<Program> logger)
         {
             this.cameraBs = cameraBs;
             this.logger = logger;
@@ -67,7 +67,7 @@ namespace EveryBodyCodes.CLI
                     services.AddOptions();
                     services.Configure<Configurations>(Configuration.GetSection("Configurations"))
 
-                     .AddSingleton<ICameraBs, CameraBs>()
+                     .AddSingleton<INumberBs, NumberBs>()
                      .AddSingleton<ICameraService, CameraService>();
                 });
             

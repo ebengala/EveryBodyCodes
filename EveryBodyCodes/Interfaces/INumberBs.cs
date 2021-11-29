@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace EveryBodyCodes.Interfaces
 {
-    public interface ICameraBs
+    public interface INumberBs
     {
-        Task<List<EntityCamera>> GetCamerasByNameAsync(string Name);
+        List<int> DoSomethingWithNumbers(List<int> Numbers);
     }
 
 }

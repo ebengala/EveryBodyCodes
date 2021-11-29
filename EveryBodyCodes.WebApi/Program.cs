@@ -2,6 +2,7 @@ using EveryBodyCodes.Business;
 using EveryBodyCodes.ExternalServices;
 using EveryBodyCodes.ExternalServices.Interfaces;
 using EveryBodyCodes.Interfaces;
+using EveryBodyCodes.WebApi.Filters;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -58,8 +59,8 @@ namespace EveryBodyCodes.WebApi
              .UseSerilog()
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddSingleton<ICameraBs, CameraBs>();
-                    services.AddSingleton<ICameraService, CameraService>();
+                    services.AddSingleton<INumberBs, NumberBs>();
+                    //services.AddSingleton<INumberService, NumberService>();
 
                 })
             .ConfigureWebHostDefaults(webBuilder =>
